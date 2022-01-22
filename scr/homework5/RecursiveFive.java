@@ -3,7 +3,6 @@ package homework5;
 import java.util.ArrayList;
 
 public class RecursiveFive {
-    static String res;
     static String result = "1";
     static ArrayList<Integer> list;
 
@@ -12,15 +11,18 @@ public class RecursiveFive {
         int res = number;
         list = new ArrayList<>();
         five(number);
-        for (int i = list.size() - 1; i >= 0; i--) {
-            if (list.get(i) == 3) {
-                result = result + "*3";
-            } else {
-                result = result + "+5";
+        if(result.equals("no")){
+            System.out.println("try another number");
+        }else {
+            for (int i = list.size() - 1; i >= 0; i--) {
+                if (list.get(i) == 3) {
+                    result = result + "*3";
+                } else {
+                    result = result + "+5";
+                }
             }
+            System.out.println(number + " = " + result);
         }
-        System.out.println(number + " = " + result);
-
     }
 
     private static int three(int num) {
@@ -48,6 +50,7 @@ public class RecursiveFive {
             return num;
         } else {
             System.out.println("can not be found");
+            result="no";
             return num;
         }
 
